@@ -12,8 +12,9 @@
   <%= f.submit %>
 <% end %>
 
-<%# unless @flight_results.nil? %>
+<% unless @flight_results.blank? %>
+  <h2></h2>
   <% @flight_results.each do |f| %>
    ID: <%= f.id %>
   <% end %>
-<%# end %>
+<% end %>
