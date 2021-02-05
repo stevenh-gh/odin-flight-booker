@@ -11,3 +11,9 @@
   Select available dates: <%= select_tag :date, options_for_select(@date_options) %><br>
   <%= f.submit %>
 <% end %>
+
+<%# unless @flight_results.nil? %>
+  <% @flight_results.each do |f| %>
+   ID: <%= f.id %>
+  <% end %>
+<%# end %>
