@@ -12,15 +12,15 @@ sjc = Airport.create code: 'SJC'
 oak = Airport.create code: 'OAK'
 hwd = Airport.create code: 'HWD'
 
-sfo_lax = Flight.new
-sfo_sjc = Flight.new
-sfo_oak = Flight.new
-sfo_hwd = Flight.new
+sfo_lax = Flight.new start_date: rand(10.years).seconds.ago
+sfo_sjc = Flight.new start_date: rand(10.years).seconds.from_now
+sfo_oak = Flight.new start_date: rand(10.years).seconds.ago
+sfo_hwd = Flight.new start_date: rand(10.years).seconds.from_now
 
-lax_sfo = Flight.new
-lax_sjc = Flight.new
-lax_oak = Flight.new
-lax_hwd = Flight.new
+lax_sfo = Flight.new start_date: rand(10.years).seconds.ago
+lax_sjc = Flight.new start_date: rand(10.years).seconds.from_now
+lax_oak = Flight.new start_date: rand(10.years).seconds.ago
+lax_hwd = Flight.new start_date: rand(10.years).seconds.from_now
 
 sfo_lax.from_airport = sfo
 sfo_lax.to_airport = lax
