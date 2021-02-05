@@ -3,11 +3,11 @@
 <%# form_for @flight, method: :get do |f| %>
 <%= form_for :flight, method: :get do |f| %>
   Select source and destination airport:<br>
-  FROM: <%= select_tag :from_airport_id, options_for_select(@airport_options) %><br>
-  TO: <%= select_tag :to_airport_id, options_for_select(@airport_options) %><br>
+  FROM: <%= select_tag :from_code, options_for_select(@airport_options) %><br>
+  TO: <%= select_tag :to_code, options_for_select(@airport_options) %><br>
   <br>
-  Number of passengers: <%= select_tag :number_of_passengers, options_for_select([[1], [2], [3], [4]]) %><br>
+  Number of passengers: <%= select_tag :num_tickets, options_for_select([[1], [2], [3], [4]]) %><br>
   <br>
-  Select available dates: <%= select_tag :flight_date, options_for_select(@date_options) %><br>
+  Select available dates: <%= select_tag :date, options_for_select(@date_options) %><br>
   <%= f.submit %>
 <% end %>
