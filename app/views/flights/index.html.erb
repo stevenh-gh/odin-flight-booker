@@ -13,10 +13,11 @@
 <% end %>
 
 <% unless @flight_results.blank? %>
-  <h2></h2>
-  <% @flight_results.each do |f| %>
-   ID: <%= f.id %>
+
+  <%= form_with(url: new_booking_path, model: @booking, method: :get) do |f| %>
+
   <% end %>
+
 <% end %>
 
 <% console %>
