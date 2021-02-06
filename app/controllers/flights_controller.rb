@@ -7,6 +7,8 @@ class FlightsController < ApplicationController
     @booking = Booking.new
   end
 
+  private
+
   def query_params
     params.permit :from_code, :to_code, :num_tickets, :date, :commit
   end
