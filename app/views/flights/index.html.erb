@@ -9,13 +9,21 @@
   Number of passengers: <%= select_tag :num_tickets, options_for_select([[1], [2], [3], [4]]) %><br>
   <br>
   Select available dates: <%= select_tag :date, options_for_select(@date_options) %><br>
+  <br>
   <%= f.submit %>
 <% end %>
 
 <% unless @flight_results.blank? %>
 
-  <%= form_with(url: new_booking_path, model: @booking, method: :get) do |f| %>
+  <h2>Flight results</h2>
+  <%= form_with(url: new_booking_path, method: :get, model: @booking) do |f| %>
+    <%= f.hidden_field(:num_passengers, value: params[:num_tickets]) %>
 
+    <%= f.collection_radio_buttons :flight_id, @flight_results, :id, :description do |b| %>
+      <%= b.label{ b.radio_button + b.label } %><br>
+    <% end %><br>
+
+    <%= f.submit %>
   <% end %>
 
 <% end %>
