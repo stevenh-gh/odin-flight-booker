@@ -20,7 +20,9 @@
     <%= f.hidden_field(:num_passengers, value: params[:num_tickets]) %>
 
     <%= f.collection_radio_buttons :flight_id, @flight_results, :id, :description do |b| %>
-      <%= b.label{ b.radio_button + b.label } %><br>
+      <%= b.label do %>
+      <pre><%= b.radio_button + b.text %><pre>
+      <% end %>
     <% end %><br>
 
     <%= f.submit %>
