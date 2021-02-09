@@ -1,0 +1,36 @@
+<h1>Enter passenger information</h1>
+
+<% flight = Flight.find(@flight_id) %>
+<% id = flight.id %>
+<% date = flight.start_date.strftime('%B %d, %Y') %>
+<% to_airport = flight.to_airport.code %>
+<% from_airport = flight.from_airport.code %>
+
+<%= form_with(model: @booking) do |f| %>
+  <%= f.hidden_field(:flight_id, value: id) %>
+  <%= f.hidden_field(:num_passengers, value: @num_passengers) %>
+
+  Flight ID: <%= text_field(:flight, :id, value: id, disabled: true) %><br>
+  Date: <%= text_field(:flight, :start_date, value: date, disabled: true) %><br>
+  From: <%= text_field(:flight, :from_airport, value: from_airport, disabled: true) %><br>
+  To: <%= text_field(:flight, :to_airport, value: to_airport, disabled: true) %><br>
+  <br>
+
+  <%# @passengers.each do |passenger| %>
+    <%# f.fields_for(passenger) do |pf| %>
+    <%= f.fields_for(:passengers) do |pf| %>
+      <%# <%= pf.hidden_field(:flight_id, value: id, name: 'booking[passenger][][flight_id]') %>
+      <%# Name: <%= pf.text_field(:name, name: 'booking[passenger][][name]') %><br>
+      <%# Email: <%= pf.text_field(:email, name: 'booking[passenger][][email]') %><br>
+
+      <%= pf.hidden_field(:flight_id, value: id) %>
+      Name: <%= pf.text_field(:name) %><br>
+      Email: <%= pf.text_field(:email) %><br>
+      <br>   
+    <% end %>
+  <%# end %>
+
+  <%= f.submit %>
+<% end %>
+
+<% console %>
