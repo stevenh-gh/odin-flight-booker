@@ -1,6 +1,10 @@
 <h1>Booking info</h1>
+<h2>Flight info</h2>
 flight id: <%= @booking.flight_id %><br>
-<br>
+from: <%= @booking.flight.from_airport.code %> → to: <%= @booking.flight.to_airport.code %><br>
+Date: <%= @booking.flight.start_date.strftime('%B %d, %Y') %><br>
+Time: <%= @booking.flight.start_date.strftime('%k:%M') %> / <%= @booking.flight.start_date.strftime('%l:%M%P') %><br>
+<h2>Passengers info</h2>
 <% @booking.passengers.each do |pa| %>
   name: <%= pa.name %><br>
   email: <%= pa.email %><br>
